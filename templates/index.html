@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Upload Documents</title>
+</head>
+
+<body>
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" name="upload" value="Upload" />
+    </form>
+    <br>
+    {% if file_info|length < 1 %} <h3>No files found</h3>
+        {% else %}
+        <table>
+            <tr>
+                <th>Files</th>
+                <th>Date Uploaded</th>
+            </tr>
+            {% for file, date_created in file_info.items() %}
+            <tr>
+                <td><a href="/download/{{ file }}">{{ file }}</a></td>
+                <td>{{ date_created }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+</body>
+
+</html>
