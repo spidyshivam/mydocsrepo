@@ -1,5 +1,5 @@
 body {
-    font-size: 1.125;
+    font-size: 1.125rem;
     color: #707070;
     margin: 0;
 }
@@ -9,12 +9,23 @@ body {
 .container {
     max-width: 980px;
     margin: 0 auto;
+    width: 90%;
 }
 
 .columns{
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     margin: 1em auto;
+}
+.tr_rows{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (max-width: 600px){
+    .columns{}
 }
 
 
@@ -23,6 +34,7 @@ body {
 h1 {
     text-align: center;
 }
+
 
 .container div {
 }

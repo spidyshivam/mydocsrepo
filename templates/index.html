@@ -13,7 +13,7 @@
         <div class="columns">
             <h1>Documents</h1>
         </div>
-        <div class="columns flex">
+        <div class="columns">
             <form method="POST" action="/" enctype="multipart/form-data">
                 <input type="file" name="file" />
                 <input type="submit" name="upload" value="Upload" />
@@ -28,7 +28,7 @@
             {% endif %}
             {% endwith %}
         </div>
-        <div class="columns flex">
+        <div class="columns">
             {% if file_info|length < 1 %} <h3>No files found</h3>
                 {% else %}
                 <table>
@@ -38,7 +38,7 @@
                     </tr>
                     {% for file, date_created in file_info.items() %}
                     <tr>
-                        <td><a href="/download/{{ file }}">{{ file }}</a></td>
+                        <td class="tr_rows"><a href="/download/{{ file }}">{{ file }}</a></td>
                         <td>{{ date_created }}</td>
                     </tr>
                     {% endfor %}
