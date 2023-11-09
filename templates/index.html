@@ -11,6 +11,15 @@
         <input type="file" name="file" />
         <input type="submit" name="upload" value="Upload" />
     </form>
+    <div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <span>{{ message }}</span>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
     <br>
     {% if file_info|length < 1 %} <h3>No files found</h3>
         {% else %}
