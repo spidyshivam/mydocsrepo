@@ -10,7 +10,7 @@ UPLOAD_FOLDER = '/home/shivam/data'
 app = Flask(__name__)
 app.secret_key='hellothere!'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 1024 * 10 * 10
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10
 
 
 # Listing Files and their creation time from server
