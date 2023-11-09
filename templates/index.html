@@ -4,39 +4,47 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
     <title>Upload Documents</title>
 </head>
 
 <body>
-    <form method="POST" action="/" enctype="multipart/form-data">
-        <input type="file" name="file" />
-        <input type="submit" name="upload" value="Upload" />
-    </form>
-    <div>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <span>{{ message }}</span>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-    </div>
-    <br>
-    {% if file_info|length < 1 %} <h3>No files found</h3>
-        {% else %}
-        <table>
-            <tr>
-                <th>Files</th>
-                <th>Date Uploaded</th>
-            </tr>
-            {% for file, date_created in file_info.items() %}
-            <tr>
-                <td><a href="/download/{{ file }}">{{ file }}</a></td>
-                <td>{{ date_created }}</td>
-            </tr>
+    <div class="container">
+        <div class="columns">
+            <h1>Documents</h1>
+        </div>
+        <div class="columns flex">
+            <form method="POST" action="/" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" name="upload" value="Upload" />
+            </form>
+        </div>
+        <div class="columns">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <span>{{ message }}</span>
             {% endfor %}
-        </table>
-        {% endif %}
+            {% endif %}
+            {% endwith %}
+        </div>
+        <div class="columns flex">
+            {% if file_info|length < 1 %} <h3>No files found</h3>
+                {% else %}
+                <table>
+                    <tr>
+                        <th>Files</th>
+                        <th>Date Uploaded</th>
+                    </tr>
+                    {% for file, date_created in file_info.items() %}
+                    <tr>
+                        <td><a href="/download/{{ file }}">{{ file }}</a></td>
+                        <td>{{ date_created }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+        </div>
+    </div>
 </body>
-
 </html>

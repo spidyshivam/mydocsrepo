@@ -1,0 +1,28 @@
+body {
+    font-size: 1.125;
+    color: #707070;
+    margin: 0;
+}
+
+/* Layout */
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.columns{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em auto;
+}
+
+
+/* Typography */
+
+h1 {
+    text-align: center;
+}
+
+.container div {
+}
