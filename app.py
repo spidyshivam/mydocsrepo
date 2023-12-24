@@ -4,13 +4,13 @@ import os
 from datetime import datetime
 
 #Change it your upload folder(the user running the flask server must have written permission to that folder)
-UPLOAD_FOLDER = '/home/shivam/data'
+UPLOAD_FOLDER = '/root/data'
 
 #Flask Config
 app = Flask(__name__)
 app.secret_key='hellothere!'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 100
 
 
 # Listing Files and their creation time from server
